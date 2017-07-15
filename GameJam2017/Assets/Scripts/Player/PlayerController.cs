@@ -43,8 +43,10 @@ public class PlayerController : MonoBehaviour {
     private void StartFightAgainstEnemy(Enemy controller)
     {
         if (Utility.canWalk)
-        eventQTE(5, 2, controller);
-
+        {
+            Utility.canWalk = false;
+            eventQTE(5, 2, controller);
+        }
     }
 
     // Update is called once per frame

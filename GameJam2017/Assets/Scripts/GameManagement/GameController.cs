@@ -42,6 +42,7 @@ public class GameController : MonoBehaviour {
             dec.RightDecision += 0;
             dec.WrongDecision += 1;
             decisionList.Add(dec);
+            Utility.canWalk = true;
         }
     }
 
