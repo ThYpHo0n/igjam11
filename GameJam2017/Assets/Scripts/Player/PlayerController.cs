@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        //TODO: myAnim = GetComponent<Animator>();
+        //myAnim.setBool("dead", false);
         myRB = GetComponent<Rigidbody2D>();
         EventManager.Fight += StartFightAgainstEnemy;
     }
@@ -52,37 +54,45 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     private void FixedUpdate()
     {
+
+        //for jump & jumpAnimation
+        groundCollisions = Physics2D.OverlapCircleAll(groundChecker.position, groundCheckRadius, groundLayer);
+
+        if (groundCollisions.Length > 0)
+        {
+            grounded = true;
+        }
+        else
+        {
+            grounded = false;
+        }
+
+        // for run & runAnimation
+        float movement = Input.GetAxis("Horizontal");
+
         if (Utility.canWalk)
         {
-
             //for run
-            float movement = Input.GetAxis("Horizontal");
-
             if ((movement > 0 && !faceRight) || movement < 0 && faceRight)
             {
                 flip();
             }
+            myRB.velocity = new Vector2(maxSpeed * movement, myRB.velocity.y);
 
-            //for jump
-            groundCollisions = Physics2D.OverlapCircleAll(groundChecker.position, groundCheckRadius, groundLayer);
-
-            if (groundCollisions.Length > 0)
-            {
-                grounded = true;
-            }
-            else
-            {
-                grounded = false;
-            }
-
+            // for Jump
             if (grounded && Input.GetAxis("Jump") > 0)
             {
                 grounded = false;
                 myRB.velocity = new Vector2(myRB.velocity.x, jumpHigh);
             }
-
-            myRB.velocity = new Vector2(maxSpeed * movement, myRB.velocity.y);
         }
+
+        //TODO: für Animator
+        //myAnim.SetBool("grounded", grounded);
+        //myAnim.SetFloat("movement", movement);
+        //myAnim.SetFloat("jumpDirection", GetComponent<Rigidbody2D>().velocity.y);
+
+
 
         //for Eventtests
         if (Input.GetKeyDown(KeyCode.Z))
@@ -184,10 +194,12 @@ public class PlayerController : MonoBehaviour {
             if (keyPressed)
             {
                 LettersToPress--;
+                //TODO: myAnim.SetBool("attack", true);
             }
             else
             {
                 break;
+                //TODO: myAnim.setBool("dead",true);
                 //TODO: Hier Spiel verloren Event triggern
             }
         }
