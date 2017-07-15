@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour {
         float distance = Vector3.Distance(this.transform.position, player.transform.position);
         if (distance <= 5f)
         {
+            Utility.canWalk = false;
             CanvasObject.SetActive(true);
             Utility.CurrentEnemy = this;
         }
