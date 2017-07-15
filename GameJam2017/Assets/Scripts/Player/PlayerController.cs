@@ -37,7 +37,14 @@ public class PlayerController : MonoBehaviour {
     void Start()
     {
         myRB = GetComponent<Rigidbody2D>();
+        EventManager.Fight += StartFightAgainstEnemy;
     }
+
+    private void StartFightAgainstEnemy(Enemy controller)
+    {
+        eventQTE(5, 2, controller);
+    }
+
     // Update is called once per frame
     private void FixedUpdate()
     {
@@ -76,7 +83,7 @@ public class PlayerController : MonoBehaviour {
         }
         if (Input.GetKeyDown(KeyCode.U))
         {
-            eventQTE(5,2);
+            //eventQTE(5,2);
         }
     }
 
@@ -135,12 +142,12 @@ public class PlayerController : MonoBehaviour {
     }
 
     // Tipp: event(5,2)
-    public void eventQTE(int LettersToPress, float timeToClickInRelative)
+    public void eventQTE(int LettersToPress, float timeToClickInRelative, Enemy controller)
     {
-        StartCoroutine(ieQTE(LettersToPress, 1 / (timeToClickInRelative * 50)));
+        StartCoroutine(ieQTE(LettersToPress, 1 / (timeToClickInRelative * 50),controller));
     }
 
-    private IEnumerator ieQTE(int LettersToPress, float timeToClick)
+    private IEnumerator ieQTE(int LettersToPress, float timeToClick, Enemy Controller)
     {
         CanvasQTE.SetActive(true);
 
@@ -157,6 +164,7 @@ public class PlayerController : MonoBehaviour {
                 if (Input.GetKeyDown(charsQTE[randomLetter]))
                 {
                     keyPressed = true;
+                    Controller.GetDamage(20);
                 }
 
                 sliderQTE.value = fightValue -= timeToClick;

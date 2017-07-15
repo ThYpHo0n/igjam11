@@ -33,6 +33,8 @@ public class GameController : MonoBehaviour {
             dec.RightDecision += 1;
             dec.WrongDecision += 0;
             decisionList.Add(dec);
+
+            EventManager.F_Fight(Utility.CurrentEnemy);
         }
         else
         {
