@@ -6,7 +6,7 @@ public class botTrigger : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Platform"))
+        if (collision.gameObject.CompareTag("Plattform"))
             collision.gameObject.layer = 8;
     }
 }
