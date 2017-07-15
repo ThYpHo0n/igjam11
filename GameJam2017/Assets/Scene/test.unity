@@ -277,7 +277,7 @@ RectTransform:
   m_GameObject: {fileID: 1337518729}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.025, y: 0.025, z: 0.025}
+  m_LocalScale: {x: 0.024630541, y: 0.024630541, z: 0.024630541}
   m_Children:
   - {fileID: 1880191793}
   m_Father: {fileID: 0}
@@ -298,6 +298,7 @@ GameObject:
   - component: {fileID: 1559252336}
   - component: {fileID: 1559252338}
   - component: {fileID: 1559252337}
+  - component: {fileID: 1559252339}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -332,7 +333,6 @@ MonoBehaviour:
   ImageArray: []
   SecondToNextImage: 6
   PanelObject: {fileID: 1880191792}
-  LoadingInformations: {fileID: 0}
   LoadingImage_UI: {fileID: 1812289205}
 --- !u!114 &1559252338
 MonoBehaviour:
@@ -346,6 +346,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadManager: {fileID: 0}
+--- !u!114 &1559252339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1559252335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14d4c3a00902d59478bc109a549585b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - SoundName: MainTheme
+    clip: {fileID: 8300000, guid: 957421b7fa31d30448a3af02fc397273, type: 3}
+    Volume: 1
+    Pitch: 1
+    Loop: 1
+    source: {fileID: 0}
+  - SoundName: SecondSound
+    clip: {fileID: 8300000, guid: acd25d08897b17145a726682deda9d19, type: 3}
+    Volume: 1
+    Pitch: 1
+    Loop: 1
+    source: {fileID: 0}
 --- !u!1 &1812289203
 GameObject:
   m_ObjectHideFlags: 0
