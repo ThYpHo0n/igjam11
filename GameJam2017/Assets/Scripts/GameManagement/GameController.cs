@@ -39,19 +39,15 @@ public class GameController : MonoBehaviour {
 
     public void DecisionSummary()
     {
-        foreach (var item in decisionList)
+
+        for (int i = 0; i < decisionList.Count; i++)
         {
-            if (item.WrongDecision > 0)
+            if (decisionList[i].WrongDecision > 0)
             {
-                // TODO Trigger Worng Deciison
-                break;
-            }
-            else
-            {
-                // TODO Trigger Right Decision
-                break;
+                // TODO Trigger Wrong End
             }
         }
+        // TODO Trigger Nice End
     }
 
 
