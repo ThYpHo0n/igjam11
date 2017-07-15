@@ -30,7 +30,7 @@ public class parallaxing : MonoBehaviour {
         {
             Vector3 parallax = (previousCameraPosition - transform.position) * (parallaxScales[i]/smoothing);
 
-            backgrounds[i].position = new Vector3(backgrounds[i].position.x + parallax.x, backgrounds[i].position.y + parallax.y, backgrounds[i].position.z);
+            backgrounds[i].position = new Vector3(backgrounds[i].position.x + parallax.x*(-10), backgrounds[i].position.y + parallax.y, backgrounds[i].position.z);
         }
 
 
