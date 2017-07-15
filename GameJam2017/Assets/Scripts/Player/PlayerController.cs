@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour {
 
+    // Zeug aus dem Spielgeschehen
     Rigidbody2D myRB;
     Animator myAnim;
 
@@ -18,8 +19,12 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] Text textSmash;
     [SerializeField] Slider sliderSmash;
 
+    // für QTE
     string[] charsQTE = new string[] { "q", "w", "e", "a", "s", "d" };
 
+    //Spieler Eigenschaften
+    float live;
+    float mentalLive;
 
     //für laufen
     public float maxSpeed;
@@ -40,6 +45,9 @@ public class PlayerController : MonoBehaviour {
         //myAnim.setBool("dead", false);
         myRB = GetComponent<Rigidbody2D>();
         EventManager.Fight += StartFightAgainstEnemy;
+
+        live = 100;
+        mentalLive = 100;
     }
 
     private void StartFightAgainstEnemy(Enemy controller)
@@ -92,6 +100,12 @@ public class PlayerController : MonoBehaviour {
         //myAnim.SetFloat("movement", movement);
         //myAnim.SetFloat("jumpDirection", GetComponent<Rigidbody2D>().velocity.y);
 
+        //lebenKontrolle
+        if (live <= 0 || mentalLive <= 0)
+        {
+            //myAnim.setBol("dead", true);
+            //TODO Hier dead Event triggern
+        }
 
 
         //for Eventtests
@@ -198,9 +212,8 @@ public class PlayerController : MonoBehaviour {
             }
             else
             {
+                live -= 10;
                 break;
-                //TODO: myAnim.setBool("dead",true);
-                //TODO: Hier Spiel verloren Event triggern
             }
         }
 
