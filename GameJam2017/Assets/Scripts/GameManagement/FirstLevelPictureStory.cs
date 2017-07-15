@@ -10,7 +10,7 @@ public class FirstLevelPictureStory : MonoBehaviour
     private Sprite[] ImageArray;
     [SerializeField]
     private Sprite[] TextArray;
-
+    public GameObject FuckingLaserSight;
 
     public int SecondToNextImage = 6;
     public GameObject PanelObject;
@@ -23,6 +23,15 @@ public class FirstLevelPictureStory : MonoBehaviour
     {
         PanelObject.SetActive(true);
         LoadAllImages();
+        FuckingLaserSight.SetActive(false);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            AbortMissionBriefing();
+        }
     }
 
     void LoadAllImages()
@@ -31,6 +40,15 @@ public class FirstLevelPictureStory : MonoBehaviour
         TextArray = Resources.LoadAll<Sprite>("Begintextboxes/");
         LoadingImage_UI.sprite = ImageArray[0];
         StoryImage_UI.sprite = TextArray[0];
+    }
+
+    void AbortMissionBriefing()
+    {
+        FuckingLaserSight.SetActive(true);
+        PanelObject.SetActive(false);
+        Utility.canWalk = true;
+        StopCoroutine("GameStory");
+         
     }
     public void StartGameStory()
     {
@@ -79,5 +97,7 @@ public class FirstLevelPictureStory : MonoBehaviour
 
         PanelObject.SetActive(false);
         Utility.canWalk = true;
+        FuckingLaserSight.SetActive(true);
+
     }
 };
