@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 387e832634ce3854aa4a448714c064cd
-timeCreated: 1500134297
+guid: b0fe68c143a1d8646b43cbd04cb994fe
+timeCreated: 1500135284
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -12,9 +12,8 @@ ModelImporter:
     100008: joint2
     100010: joint3
     100012: joint4
-    100014: pPlane1
-    100016: Wing_L
-    100018: Wing_R
+    100014: Wing_L
+    100016: Wing_R
     400000: //RootNode
     400002: Bag1
     400004: Body
@@ -22,21 +21,16 @@ ModelImporter:
     400008: joint2
     400010: joint3
     400012: joint4
-    400014: pPlane1
-    400016: Wing_L
-    400018: Wing_R
-    2100000: lambert1
-    2100002: Body1
-    2100004: Bag
-    2100006: Wing_R1
-    2100008: Wing_L1
-    2300000: pPlane1
-    3300000: pPlane1
-    4300000: pPlane1
-    4300002: Body
-    4300004: Bag1
-    4300006: Wing_R
-    4300008: Wing_L
+    400014: Wing_L
+    400016: Wing_R
+    2100000: Body1
+    2100002: Bag
+    2100004: Wing_R1
+    2100006: Wing_L1
+    4300000: Body
+    4300002: Bag1
+    4300004: Wing_R
+    4300006: Wing_L
     7400000: Take 001
     9500000: //RootNode
     13700000: Bag1
