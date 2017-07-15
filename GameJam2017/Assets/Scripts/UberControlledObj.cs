@@ -24,6 +24,10 @@ public abstract class UberControlledObj : MonoBehaviour {
 
     // Update is called once per frame
     public abstract void Update();
+    public abstract void Die();
+    public abstract void Spawn();
+
+    //public abstract void 
 
     private void FixedUpdate() {
         groundCollisions = Physics2D.OverlapCircleAll(groundChecker.position, groundCheckRadius, groundLayer);
@@ -40,11 +44,12 @@ public abstract class UberControlledObj : MonoBehaviour {
         }
 
         print(grounded);
+    }
 
-        float move = Input.GetAxis("Horizontal");
-        myRB.velocity = new Vector2(maxSpeed * move, myRB.velocity.y);
+    public void Move(float movement) {
+        myRB.velocity = new Vector2(maxSpeed * movement, myRB.velocity.y);
 
-        if ((move > 0 && !faceRight) || move < 0 && faceRight) {
+        if ((movement > 0 && !faceRight) || movement < 0 && faceRight) {
             flip();
         }
     }
