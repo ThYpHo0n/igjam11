@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour {
     // für Springen
     public float jumpHigh;
     bool grounded;
-    float groundCheckRadius = 1f;
+    float groundCheckRadius = 0.5f;
     public LayerMask groundLayer;
     public Transform groundChecker;
     Collider2D[] groundCollisions;
