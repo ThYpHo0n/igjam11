@@ -6,38 +6,75 @@ using UnityEngine.UI;
 
 public class PlayerController : UberControlledObj {
 
-    [SerializeField] GameObject PanelQTE;
+    [SerializeField] GameObject CanvasQTE;
     [SerializeField] Text textQTE;
     [SerializeField] Slider sliderQTE; 
 
-    [SerializeField] GameObject PanelSmash;
+    [SerializeField] GameObject CanvasSmash;
     [SerializeField] Text textSmash;
-    [SerializeField] Slider sliderSmasch;
+    [SerializeField] Slider sliderSmash;
 
     string [] charsQTE = new string[] {"q", "w", "e", "a", "s", "d" };
-    private void Start()
-    {
-        PanelQTE.gameObject.SetActive(false);
-    }
 
     // Update is called once per frame
     public override void Update () {
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            QTE(5,5);
-        }
-	}
-
-
-    public void QTE(int LettersToPress, float timeTiClickInSec)
-    {
-
-        StartCoroutine(ieQTE(LettersToPress));
     }
 
-    public IEnumerator ieQTE(int LettersToPress)
+    // Tipp benutze: eventSmash(2.5) 
+    public void eventSmash (float timeToZeroRelative)
     {
-        PanelQTE.SetActive(true);
+        StartCoroutine(ieSmash(1/ (timeToZeroRelative*50)));
+    }
+
+    private IEnumerator ieSmash(float fallTime)
+    {
+        CanvasSmash.SetActive(true);
+        bool win = false;
+        float fightValue = 0.5f;
+
+        while (fightValue > 0 && !win)
+        {
+            fightValue -= fallTime;
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                fightValue += 0.1f;
+            }
+            
+            sliderSmash.value = fightValue;
+
+            if (fightValue >= 1)
+            {
+                win = true;
+            }
+
+            yield return null;
+        }
+
+        if (win)
+        {
+            print("win");
+            // Hier Archievment aktivieren
+        }
+        else
+        {
+            print("lose");
+            //TODO: hier verlieren Event Starten
+        }
+
+        CanvasSmash.SetActive(false);
+        yield return null;
+    }
+
+    // Tipp: event(5,2)
+    public void eventQTE(int LettersToPress, float timeToClickInRelative)
+    {
+        StartCoroutine(ieQTE(LettersToPress, 1/(timeToClickInRelative*50)));
+    }
+    
+    private IEnumerator ieQTE(int LettersToPress, float timeToClick)
+    {
+        CanvasQTE.SetActive(true);
 
         while (LettersToPress > 0) {
 
@@ -53,7 +90,7 @@ public class PlayerController : UberControlledObj {
                     keyPressed = true;
                 }
                 
-                sliderQTE.value = fightValue -= 0.005f;
+                sliderQTE.value = fightValue -= timeToClick;
                 yield return null;
             }
 
@@ -69,7 +106,7 @@ public class PlayerController : UberControlledObj {
         }
 
 
-        PanelQTE.SetActive(false);
+        CanvasQTE.SetActive(false);
         yield return null;
     }
 }
