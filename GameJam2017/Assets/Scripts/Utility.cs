@@ -5,4 +5,5 @@ using UnityEngine;
 public class Utility
 {
    public static Enemy CurrentEnemy;
+   public static bool canWalk = true;
 }

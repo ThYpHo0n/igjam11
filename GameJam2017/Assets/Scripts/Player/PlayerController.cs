@@ -42,39 +42,45 @@ public class PlayerController : MonoBehaviour {
 
     private void StartFightAgainstEnemy(Enemy controller)
     {
+        if (Utility.canWalk)
         eventQTE(5, 2, controller);
+
     }
 
     // Update is called once per frame
     private void FixedUpdate()
     {
-        //for run
-        float movement = Input.GetAxis("Horizontal");
-
-        if ((movement > 0 && !faceRight) || movement < 0 && faceRight)
+        if (Utility.canWalk)
         {
-            flip();
-        }
 
-        //for jump
-        groundCollisions = Physics2D.OverlapCircleAll(groundChecker.position, groundCheckRadius, groundLayer);
+            //for run
+            float movement = Input.GetAxis("Horizontal");
 
-        if (groundCollisions.Length > 0)
-        {
-            grounded = true;
-        }
-        else
-        {
-            grounded = false;
-        }
+            if ((movement > 0 && !faceRight) || movement < 0 && faceRight)
+            {
+                flip();
+            }
 
-        if (grounded && Input.GetAxis("Jump") > 0)
-        {
-            grounded = false;
-            myRB.velocity = new Vector2(myRB.velocity.x, jumpHigh);
-        }
+            //for jump
+            groundCollisions = Physics2D.OverlapCircleAll(groundChecker.position, groundCheckRadius, groundLayer);
 
-        myRB.velocity = new Vector2(maxSpeed * movement, myRB.velocity.y);
+            if (groundCollisions.Length > 0)
+            {
+                grounded = true;
+            }
+            else
+            {
+                grounded = false;
+            }
+
+            if (grounded && Input.GetAxis("Jump") > 0)
+            {
+                grounded = false;
+                myRB.velocity = new Vector2(myRB.velocity.x, jumpHigh);
+            }
+
+            myRB.velocity = new Vector2(maxSpeed * movement, myRB.velocity.y);
+        }
 
         //for Eventtests
         if (Input.GetKeyDown(KeyCode.Z))
@@ -149,6 +155,8 @@ public class PlayerController : MonoBehaviour {
 
     private IEnumerator ieQTE(int LettersToPress, float timeToClick, Enemy Controller)
     {
+        Utility.canWalk = false;
+
         CanvasQTE.SetActive(true);
 
         while (LettersToPress > 0)
@@ -185,6 +193,8 @@ public class PlayerController : MonoBehaviour {
 
         CanvasQTE.SetActive(false);
         yield return null;
+
+        Utility.canWalk = true;
     }
 }
 
