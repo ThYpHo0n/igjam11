@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 8ec3b0a9ea76fd644bb42e6df448801a
-timeCreated: 1500139374
+guid: cdc941683704a82419a9ce7fc9175b42
+timeCreated: 1500157211
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -31,7 +31,6 @@ ModelImporter:
     4300002: Tail
     4300004: Arm_L
     4300006: Arm_R
-    7400000: Take 001
     9500000: //RootNode
     13700000: Arm_L
     13700002: Arm_R
@@ -84,35 +83,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Take 001
-      takeName: Take 001
-      firstFrame: 1
-      lastFrame: 66
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 0
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
