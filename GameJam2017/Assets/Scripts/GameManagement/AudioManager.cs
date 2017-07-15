@@ -79,7 +79,7 @@ public class AudioManager : MonoBehaviour
                 fadeIn.source.volume = 1f;
             }
             fadeOut.source.volume -= 0.2f;
-            fadeIn.source.volume += 0.2f;
+            fadeIn.source.volume += 0.1f;
 
             yield return new WaitForSeconds(2.5f);
         } while (fadeIn.source.volume < 0.85f);
