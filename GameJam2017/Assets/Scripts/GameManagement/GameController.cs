@@ -29,11 +29,19 @@ public class GameController : MonoBehaviour {
         MonsterFight += 1;
         if (isGood)
         {
-            decisionList[MonsterFight].RightDecision += 1;
+            Decisions dec = new Decisions();
+            dec.RightDecision += 1;
+            dec.WrongDecision += 0;
+            decisionList.Add(dec);
+
+            EventManager.F_Fight(Utility.CurrentEnemy);
         }
         else
         {
-            decisionList[MonsterFight].WrongDecision += 1;
+            Decisions dec = new Decisions();
+            dec.RightDecision += 0;
+            dec.WrongDecision += 1;
+            decisionList.Add(dec);
         }
     }
 
