@@ -23,5 +23,9 @@ public class simplemovement : MonoBehaviour {
         {
             this.transform.position += Vector3.left*Speed*Time.deltaTime;
         }
+        if(Input.GetKey(KeyCode.Space))
+        {
+            this.transform.position += Vector3.up * 10*Speed * Time.deltaTime;
+        }
     }
 }
