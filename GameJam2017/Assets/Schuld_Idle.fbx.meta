@@ -1,48 +1,42 @@
 fileFormatVersion: 2
-guid: 387e832634ce3854aa4a448714c064cd
-timeCreated: 1500134297
+guid: 631870469b9cb3041aa3f01f5de7976d
+timeCreated: 1500136378
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
-    100000: //RootNode
-    100002: Bag1
+    100000: Arm_L
+    100002: Arm_R
     100004: Body
     100006: joint1
     100008: joint2
     100010: joint3
     100012: joint4
-    100014: pPlane1
-    100016: Wing_L
-    100018: Wing_R
-    400000: //RootNode
-    400002: Bag1
+    100014: //RootNode
+    100016: Tail
+    400000: Arm_L
+    400002: Arm_R
     400004: Body
     400006: joint1
     400008: joint2
     400010: joint3
     400012: joint4
-    400014: pPlane1
-    400016: Wing_L
-    400018: Wing_R
-    2100000: lambert1
-    2100002: Body1
-    2100004: Bag
-    2100006: Wing_R1
-    2100008: Wing_L1
-    2300000: pPlane1
-    3300000: pPlane1
-    4300000: pPlane1
-    4300002: Body
-    4300004: Bag1
-    4300006: Wing_R
-    4300008: Wing_L
+    400014: //RootNode
+    400016: Tail
+    2100000: Body1
+    2100002: Tail1
+    2100004: Arm_L1
+    2100006: Arm_R1
+    4300000: Body
+    4300002: Tail
+    4300004: Arm_L
+    4300006: Arm_R
     7400000: Take 001
     9500000: //RootNode
-    13700000: Bag1
-    13700002: Body
-    13700004: Wing_L
-    13700006: Wing_R
+    13700000: Arm_L
+    13700002: Arm_R
+    13700004: Body
+    13700006: Tail
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -70,35 +64,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations:
-    - serializedVersion: 16
-      name: Take 001
-      takeName: Take 001
-      firstFrame: 1
-      lastFrame: 63
-      wrapMode: 0
-      orientationOffsetY: 0
-      level: 0
-      cycleOffset: 0
-      loop: 0
-      hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
-      keepOriginalOrientation: 0
-      keepOriginalPositionY: 1
-      keepOriginalPositionXZ: 0
-      heightFromFeet: 0
-      mirror: 0
-      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
-      curves: []
-      events: []
-      transformMask: []
-      maskType: 3
-      maskSource: {instanceID: 0}
-      additiveReferencePoseFrame: 0
+    clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
