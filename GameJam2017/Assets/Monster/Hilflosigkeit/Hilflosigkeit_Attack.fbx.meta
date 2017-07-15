@@ -43,7 +43,32 @@ ModelImporter:
     13700002: Body
     13700004: Wing_L
     13700006: Wing_R
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Bag
+    second: {fileID: 2100000, guid: 89651fc35360f36488cf4d2cfc4c56d7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body1
+    second: {fileID: 2100000, guid: bffd17f220c7aba42bc19d2faaf63c83, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wing_L1
+    second: {fileID: 2100000, guid: d5692ff704b4d4646aeb2b7241398e8b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wing_R1
+    second: {fileID: 2100000, guid: a3ce5993ab72e9245a9b3772cf42def5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: 9902db6ebc5ab5848b8eafd8e43f3b0d, type: 2}
   materials:
     importMaterials: 1
     autoMapExternalMaterials: 1
