@@ -47,6 +47,7 @@ public class FirstLevelPictureStory : MonoBehaviour
         FuckingLaserSight.SetActive(true);
         PanelObject.SetActive(false);
         Utility.canWalk = true;
+        AudioManager.instance.PlaySong("Maintheme");
         StopCoroutine("GameStory");
          
     }
@@ -98,6 +99,7 @@ public class FirstLevelPictureStory : MonoBehaviour
         PanelObject.SetActive(false);
         Utility.canWalk = true;
         FuckingLaserSight.SetActive(true);
+        AudioManager.instance.PlaySong("Maintheme");
 
     }
 };

@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     // Use this for initialization
     void Awake()
     {
+
         if (instance == null)
         {
             instance = this;
@@ -32,8 +33,8 @@ public class AudioManager : MonoBehaviour
     }
     private void Start()
     {
-        PlaySong("MainTheme");
-        FadingSongOutAndNewIn("MainTheme", "SecondSound");
+        
+        //FadingSongOutAndNewIn("MainTheme", "SecondSound");
     }
     public void PlaySong(string name)
     {
@@ -45,12 +46,39 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
+    public void PlayDeathSound(string current,string Death)
+    {
+        Sound currentSound = Array.Find(sounds, sound => sound.SoundName == current);
+        Sound deathSound = Array.Find(sounds, sound => sound.SoundName == Death);
+        if (currentSound == null && deathSound == null)
+        {
+            return;
+        }
+        currentSound.source.volume = 0.0f;
+        deathSound.source.volume = 1f;
+        deathSound.source.Play();
+        EventManager.F_GameOver();
+    }
+
+    public void PlayGameOverSound(string current, string gameOver)
+    {
+        Sound currentSound = Array.Find(sounds, sound => sound.SoundName == current);
+        Sound gameover = Array.Find(sounds, sound => sound.SoundName == gameOver);
+        if (currentSound == null && gameover == null)
+        {
+            return;
+        }
+        currentSound.source.volume = 0.0f;
+        gameover.source.volume = 1f;
+        gameover.source.Play();
+    }
+
     public void FadingSongOutAndNewIn(string soundToFadeOut, string soundToFadeIn)
     {
         StartCoroutine(FadeOut(soundToFadeOut, soundToFadeIn));
     }
 
-    IEnumerator FadeOut(string soundToFadeOut,string soundToFadeIn)
+    IEnumerator FadeOut(string soundToFadeOut, string soundToFadeIn)
     {
         Sound fadeOut = Array.Find(sounds, sound => sound.SoundName == soundToFadeOut);
         Sound fadeIn = Array.Find(sounds, sound => sound.SoundName == soundToFadeIn);
@@ -67,7 +95,7 @@ public class AudioManager : MonoBehaviour
 
         fadeIn.source.volume = 0;
         fadeIn.source.Play();
-      
+
         do
         {
             if (fadeOut.source.volume < 0.01f)
