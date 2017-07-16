@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
     public static GameController Instance;
     public GameObject CanvasBadEnd;
+    public Image DeathScreen;
+    public Image GoodScreen;
     public GameObject CanvasGoodEnd;
     private int MonsterFight = 0;
     
@@ -91,11 +94,43 @@ public class GameController : MonoBehaviour {
 
     public void TriggerWrongEnd()
     {
-        CanvasBadEnd.SetActive(true);
+       CanvasBadEnd.SetActive(true);
+        StartCoroutine("StartFade");
     }
 
     private void TriggerRightEnd()
     {
         CanvasGoodEnd.SetActive(true);
+        StartCoroutine("StartFadeGood");
+    }
+
+    IEnumerator StartFade()
+    {
+        do
+        {
+            if (DeathScreen.color.a >= 0.99f)
+            {
+                DeathScreen.color = Color.white;
+            }
+            DeathScreen.color = Color.Lerp(DeathScreen.color, Color.white, 0.5f * Time.deltaTime);
+            yield return new WaitForSeconds(0.001f);
+        } while (DeathScreen.color.a < 1f);
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    IEnumerator StartFadeGood()
+    {
+        do
+        {
+            if (GoodScreen.color.a >= 0.99f)
+            {
+                GoodScreen.color = Color.white;
+            }
+            GoodScreen.color = Color.Lerp(GoodScreen.color, Color.white, 0.5f * Time.deltaTime);
+            yield return new WaitForSeconds(0.001f);
+        } while (GoodScreen.color.a < 1f);
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene("MainMenu");
     }
 }
