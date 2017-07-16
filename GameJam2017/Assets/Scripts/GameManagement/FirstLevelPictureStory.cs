@@ -46,7 +46,9 @@ public class FirstLevelPictureStory : MonoBehaviour
     {
         FuckingLaserSight.SetActive(true);
         PanelObject.SetActive(false);
+        Utility.icewallMove = true;
         Utility.canWalk = true;
+        Utility.icewallMove = true;
         AudioManager.instance.PlaySong("Maintheme");
         StopCoroutine("GameStory");
          
@@ -60,6 +62,7 @@ public class FirstLevelPictureStory : MonoBehaviour
     {
         LoadingImage_UI.sprite = ImageArray[0];
         Utility.canWalk = false;
+        Utility.icewallMove = false;
         for (int i = 0; i < ImageArray.Length; i++)
         {
             LoadingImage_UI.sprite = ImageArray[i];
@@ -98,6 +101,7 @@ public class FirstLevelPictureStory : MonoBehaviour
 
         PanelObject.SetActive(false);
         Utility.canWalk = true;
+        Utility.icewallMove = true;
         FuckingLaserSight.SetActive(true);
         AudioManager.instance.PlaySong("Maintheme");
 

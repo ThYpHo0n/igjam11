@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
-
+    public static GameController Instance;
     public GameObject CanvasBadEnd;
     public GameObject CanvasGoodEnd;
     private int MonsterFight = 0;
@@ -19,6 +19,8 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start ()
     {
+        if (Instance == null)
+            Instance = this;
         GameOverScreen.SetActive(false);
         EventManager.gameOver += GameOver;
         loadManager = GetComponent<FirstLevelPictureStory>();
@@ -44,6 +46,7 @@ public class GameController : MonoBehaviour {
     {
 		
 	}
+
 
     public void IsGoodDecision(bool isGood)
     {
@@ -76,7 +79,8 @@ public class GameController : MonoBehaviour {
         {
             if (decisionList[i].WrongDecision > 0)
             {
-                TriggerWrongEnd(); 
+                TriggerWrongEnd();
+                return;
             }
           
         }
@@ -85,7 +89,7 @@ public class GameController : MonoBehaviour {
     }
 
 
-    private void TriggerWrongEnd()
+    public void TriggerWrongEnd()
     {
         CanvasBadEnd.SetActive(true);
     }
