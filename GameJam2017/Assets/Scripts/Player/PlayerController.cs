@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour {
     // für Springen
     public float jumpHigh;
     bool grounded;
-    float groundCheckRadius = 0.5f;
+    float groundCheckRadius = 0.2f;
     public LayerMask groundLayer;
     public Transform groundChecker;
     Collider2D[] groundCollisions;
@@ -41,8 +41,8 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-        //TODO: myAnim = GetComponent<Animator>();
-        //myAnim.setBool("dead", false);
+        myAnim = GetComponent<Animator>();
+        myAnim.SetBool("dead", false);
         myRB = GetComponent<Rigidbody2D>();
         EventManager.Fight += StartFightAgainstEnemy;
 
@@ -95,15 +95,14 @@ public class PlayerController : MonoBehaviour {
             }
         }
 
-        //TODO: für Animator
-        //myAnim.SetBool("grounded", grounded);
-        //myAnim.SetFloat("movement", movement);
-        //myAnim.SetFloat("jumpDirection", GetComponent<Rigidbody2D>().velocity.y);
+        myAnim.SetBool("grounded", grounded);
+        myAnim.SetFloat("movement", movement);
+        myAnim.SetFloat("jumpDirection", GetComponent<Rigidbody2D>().velocity.y);
 
         //lebenKontrolle
         if (live <= 0 || mentalLive <= 0)
         {
-            //myAnim.setBol("dead", true);
+            myAnim.SetBool("dead", true);
             //TODO Hier dead Event triggern
         }
 
@@ -111,11 +110,11 @@ public class PlayerController : MonoBehaviour {
         //for Eventtests
         if (Input.GetKeyDown(KeyCode.Z))
         {
-            eventSmash(2.5f);
+            myAnim.SetBool("dead", true);
         }
         if (Input.GetKeyDown(KeyCode.U))
         {
-            //eventQTE(5,2);
+            myAnim.SetBool("attack", true);
         }
     }
 
@@ -208,10 +207,11 @@ public class PlayerController : MonoBehaviour {
             if (keyPressed)
             {
                 LettersToPress--;
-                //TODO: myAnim.SetBool("attack", true);
+                myAnim.SetBool("attack", true);
             }
             else
             {
+                Controller.GetComponent<Animator>().SetBool("attack", true);
                 live -= 10;
                 break;
             }

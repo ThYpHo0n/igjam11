@@ -1,63 +1,87 @@
 fileFormatVersion: 2
-guid: 631870469b9cb3041aa3f01f5de7976d
-timeCreated: 1500136378
+guid: 0b5f8cdfbffbf574c91e4c2c439d7817
+timeCreated: 1500160613
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
-    100000: Arm_L
-    100002: Arm_R
+    100000: Arm_B
+    100002: Arm_F
     100004: Body
-    100006: joint1
-    100008: joint2
-    100010: joint3
-    100012: joint4
-    100014: //RootNode
-    100016: Tail
-    400000: Arm_L
-    400002: Arm_R
+    100006: Head
+    100008: joint1
+    100010: joint2
+    100012: joint3
+    100014: joint4
+    100016: joint5
+    100018: joint6
+    100020: Leg_B
+    100022: Leg_F
+    100024: //RootNode
+    400000: Arm_B
+    400002: Arm_F
     400004: Body
-    400006: joint1
-    400008: joint2
-    400010: joint3
-    400012: joint4
-    400014: //RootNode
-    400016: Tail
+    400006: Head
+    400008: joint1
+    400010: joint2
+    400012: joint3
+    400014: joint4
+    400016: joint5
+    400018: joint6
+    400020: Leg_B
+    400022: Leg_F
+    400024: //RootNode
     2100000: Body1
-    2100002: Tail1
-    2100004: Arm_L1
-    2100006: Arm_R1
+    2100002: Head1
+    2100004: Arm_F1
+    2100006: Arm_B1
+    2100008: Leg_F1
+    2100010: Leg_B1
     4300000: Body
-    4300002: Tail
-    4300004: Arm_L
-    4300006: Arm_R
-    7400000: Take 001
+    4300002: Head
+    4300004: Arm_F
+    4300006: Arm_B
+    4300008: Leg_F
+    4300010: Leg_B
+    7400000: Landing_Lily
     9500000: //RootNode
-    13700000: Arm_L
-    13700002: Arm_R
+    13700000: Arm_B
+    13700002: Arm_F
     13700004: Body
-    13700006: Tail
+    13700006: Head
+    13700008: Leg_B
+    13700010: Leg_F
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Arm_L1
-    second: {fileID: 2100000, guid: f8ee6ef1616c48b459ec85f9e4d5749b, type: 2}
+      name: Arm_B1
+    second: {fileID: 2100000, guid: 5bd60fa9b01a9dd438ab81bcb59f3290, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Arm_R1
-    second: {fileID: 2100000, guid: f854bd7beeee355489b99b302915cbd6, type: 2}
+      name: Arm_F1
+    second: {fileID: 2100000, guid: f5f9e1740caff414cabecf6ab1c70b22, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Body1
-    second: {fileID: 2100000, guid: 81b427bf4cd4381428e1c5a7c36a0abb, type: 2}
+    second: {fileID: 2100000, guid: fce49ae1e4fb637488d82789d971eecf, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Tail1
-    second: {fileID: 2100000, guid: 229faf6a34f18674eabfecd5eb8adfab, type: 2}
+      name: Head1
+    second: {fileID: 2100000, guid: 2fdc47c3963601741b8ea41f74b9ee5d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leg_B1
+    second: {fileID: 2100000, guid: 7a95d8c6cb6d14c49acc0a581b3839ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Leg_F1
+    second: {fileID: 2100000, guid: 2e4ea398bc796064584e530c0ded5bd5, type: 2}
   materials:
     importMaterials: 1
     autoMapExternalMaterials: 1
@@ -86,17 +110,17 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: Landing_Lily
       takeName: Take 001
       firstFrame: 1
-      lastFrame: 120
+      lastFrame: 6.2
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
