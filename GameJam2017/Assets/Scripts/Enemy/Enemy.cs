@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour {
 
     public int Life = 100;
 
+    public float distance;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -26,8 +28,9 @@ public class Enemy : MonoBehaviour {
 
     private void CheckDistance()
     {
-        float distance = Vector3.Distance(this.transform.position, player.transform.position);
-        if (distance <= 5f)
+        distance = Vector3.Distance(this.transform.position, player.transform.position);
+        Debug.Log(distance);
+        if (distance <= 2.5f)
         {
             Utility.canWalk = false;
             CanvasObject.SetActive(true);

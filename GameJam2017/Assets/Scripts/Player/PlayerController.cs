@@ -5,7 +5,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour
+{
 
     // Zeug aus dem Spielgeschehen
     Rigidbody2D myRB;
@@ -52,11 +53,8 @@ public class PlayerController : MonoBehaviour {
 
     private void StartFightAgainstEnemy(Enemy controller)
     {
-        if (Utility.canWalk)
-        {
-            Utility.canWalk = false;
-            eventQTE(5, 2, controller);
-        }
+        Utility.canWalk = false;
+        eventQTE(5, 2, controller);
     }
 
     // Update is called once per frame
@@ -175,7 +173,7 @@ public class PlayerController : MonoBehaviour {
     // Tipp: event(5,2)
     public void eventQTE(int LettersToPress, float timeToClickInRelative, Enemy controller)
     {
-        StartCoroutine(ieQTE(LettersToPress, 1 / (timeToClickInRelative * 50),controller));
+        StartCoroutine(ieQTE(LettersToPress, 1 / (timeToClickInRelative * 50), controller));
     }
 
     private IEnumerator ieQTE(int LettersToPress, float timeToClick, Enemy Controller)

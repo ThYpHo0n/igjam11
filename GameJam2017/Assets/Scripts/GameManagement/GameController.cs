@@ -64,6 +64,8 @@ public class GameController : MonoBehaviour {
             dec.WrongDecision += 1;
             decisionList.Add(dec);
             Utility.canWalk = true;
+
+            Destroy(Utility.CurrentEnemy.gameObject);
         }
     }
 
