@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour {
 
+    public GameObject CanvasBadEnd;
+    public GameObject CanvasGoodEnd;
     private int MonsterFight = 0;
-
+    
     [SerializeField]
     private FirstLevelPictureStory loadManager;
 
@@ -53,20 +55,22 @@ public class GameController : MonoBehaviour {
         {
             if (decisionList[i].WrongDecision > 0)
             {
-                // TODO Trigger Wrong End
+                TriggerWrongEnd(); 
             }
+          
         }
-        // TODO Trigger Nice End
+
+        TriggerRightEnd();
     }
 
 
     private void TriggerWrongEnd()
     {
-        // TODO Here some text.
+        CanvasBadEnd.SetActive(true);
     }
 
     private void TriggerRightEnd()
     {
-        // TODO Here Some text.
+        CanvasGoodEnd.SetActive(true);
     }
 }
