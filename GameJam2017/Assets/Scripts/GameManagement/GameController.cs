@@ -106,6 +106,7 @@ public class GameController : MonoBehaviour {
 
     IEnumerator StartFade()
     {
+        Utility.canWalk = false;
         do
         {
             if (DeathScreen.color.a >= 0.99f)
@@ -121,6 +122,7 @@ public class GameController : MonoBehaviour {
 
     IEnumerator StartFadeGood()
     {
+        Utility.canWalk = false;
         do
         {
             if (GoodScreen.color.a >= 0.99f)
