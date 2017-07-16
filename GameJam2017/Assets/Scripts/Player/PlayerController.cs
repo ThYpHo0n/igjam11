@@ -210,6 +210,7 @@ public class PlayerController : MonoBehaviour
             else
             {
                 Controller.GetComponent<Animator>().SetBool("attack", true);
+                Controller.ResetLife();
                 live -= 10;
                 break;
             }

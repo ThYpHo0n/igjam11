@@ -38,6 +38,11 @@ public class Enemy : MonoBehaviour {
         }
     }
 
+    public void ResetLife()
+    {
+        this.Life = 100;
+    }
+
     public void GetDamage(int damage)
     {
         if (Life <= 20)
