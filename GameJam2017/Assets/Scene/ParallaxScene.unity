@@ -2307,7 +2307,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 416272256}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 304.5, y: 171.5, z: 0}
+  m_LocalPosition: {x: 336, y: 213, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1272509707}
@@ -2628,7 +2628,7 @@ GameObject:
   - component: {fileID: 452581325}
   - component: {fileID: 452581324}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasIntro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2698,8 +2698,8 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 452581323}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 304.5, y: 171.5, z: 0}
-  m_LocalScale: {x: 0.76125, y: 0.76125, z: 0.76125}
+  m_LocalPosition: {x: 336, y: 213, z: 0}
+  m_LocalScale: {x: 0.84, y: 0.84, z: 0.84}
   m_Children:
   - {fileID: 805897932}
   m_Father: {fileID: 0}
