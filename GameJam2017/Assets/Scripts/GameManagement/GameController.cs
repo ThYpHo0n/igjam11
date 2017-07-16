@@ -67,7 +67,7 @@ public class GameController : MonoBehaviour {
             dec.WrongDecision += 1;
             decisionList.Add(dec);
             Utility.canWalk = true;
-
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>().reduceMentalLive(25);
             Destroy(Utility.CurrentEnemy.gameObject);
         }
     }

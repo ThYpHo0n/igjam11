@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     Rigidbody2D myRB;
     Animator myAnim;
 
+    [SerializeField] Slider hpSlider;
+    [SerializeField] Slider mentalHpSlider;
+
     [SerializeField] GameObject CanvasQTE;
     [SerializeField] Text textQTE;
     [SerializeField] Slider sliderQTE;
@@ -49,6 +52,8 @@ public class PlayerController : MonoBehaviour
 
         live = 100;
         mentalLive = 100;
+        hpSlider.value = live;
+        mentalHpSlider.value = mentalLive;
     }
 
     private void StartFightAgainstEnemy(Enemy controller)
@@ -101,7 +106,7 @@ public class PlayerController : MonoBehaviour
         if (live <= 0 || mentalLive <= 0)
         {
             myAnim.SetBool("dead", true);
-            //TODO Hier dead Event triggern
+            GameController.Instance.TriggerWrongEnd();
         }
 
 
@@ -163,7 +168,7 @@ public class PlayerController : MonoBehaviour
         else
         {
             print("lose");
-            //TODO: hier verlieren Event Starten
+            GameController.Instance.TriggerWrongEnd();
         }
 
         CanvasSmash.SetActive(false);
@@ -211,7 +216,8 @@ public class PlayerController : MonoBehaviour
             {
                 Controller.GetComponent<Animator>().SetBool("attack", true);
                 Controller.ResetLife();
-                live -= 10;
+                live -= 20;
+                hpSlider.value = live;
                 break;
             }
         }
@@ -221,6 +227,12 @@ public class PlayerController : MonoBehaviour
         yield return null;
 
         Utility.canWalk = true;
+    }
+
+    public void reduceMentalLive(float damage)
+    {
+        mentalLive -= damage;
+        mentalHpSlider.value = mentalLive;
     }
 }
 
