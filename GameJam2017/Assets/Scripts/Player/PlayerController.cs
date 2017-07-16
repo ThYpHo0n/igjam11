@@ -94,6 +94,7 @@ public class PlayerController : MonoBehaviour
             if (grounded && Input.GetAxis("Jump") > 0)
             {
                 grounded = false;
+                AudioManager.instance.PlaySong("Jump");
                 myRB.velocity = new Vector2(myRB.velocity.x, jumpHigh);
             }
         }
@@ -118,6 +119,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U))
         {
             myAnim.SetBool("attack", true);
+            AudioManager.instance.PlaySong("Attack");
         }
     }
 
