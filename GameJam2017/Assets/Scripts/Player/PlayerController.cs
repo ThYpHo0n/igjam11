@@ -96,7 +96,7 @@ public class PlayerController : MonoBehaviour {
         }
 
         myAnim.SetBool("grounded", grounded);
-        myAnim.SetFloat("movement", movement);
+        myAnim.SetFloat("movement", Math.Abs(movement));
         myAnim.SetFloat("jumpDirection", GetComponent<Rigidbody2D>().velocity.y);
 
         //lebenKontrolle
